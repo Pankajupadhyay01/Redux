@@ -1,9 +1,8 @@
-function App() { 
-
+import React from 'react' 
+const App = () => {  
   return (
-    <>
-     <p className=" font-extrabold text-5xl ">text</p>
-    </>
+    <div> 
+    </div>
   )
 }
 
