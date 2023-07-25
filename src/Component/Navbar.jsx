@@ -37,8 +37,8 @@ const Navbar = () => {
                     </div>
 
                     <div className={`transition-all flex flex-col md:flex-row ease-linear delay-[0.3] md:flex cursor-pointer list-none md:static absolute top-0 items-center text-center md:w-full md:justify-center  w-[70%] bg-[#4070f4] h-[100vh] md:h-0 md:left-[0%] md:text-[20px] text-[20px] ${nav ? "left-[0%]" : "left-[-100%]"} ${nav || sticky ? "text-white" : "text-black"} mt-[53px] md:mt-0 md:space-y-0 space-y-10`}>
-                         <Link to="about" offset={-90} duration={500}>Add user</Link> 
-                         <Link  to="home"   className="mx-6" offset={-90} duration={500}>List User </Link> 
+                         <Link to="/" offset={-90} duration={500}>Add Employee</Link> 
+                         <Link  to="home"   className="mx-6" offset={-90} duration={500}>List Employee </Link> 
                          <Link to="about" offset={-90} duration={500}>About</Link>
 
                     </div>
