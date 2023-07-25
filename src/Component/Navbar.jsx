@@ -1,35 +1,50 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
 
 const Navbar = () => {
-    const [stick, setstick] = useState(false);
-    const setcolor = () => {
-        if (window.scrollY >= 80) {
-            setstick(true);
+    const [nav, setnav] = useState(false);
+    const [sticky, setsticky] = useState(false);
+    const func = () => {
+        setnav(!nav)
+
+        if (!nav) {
+            document.body.style.overflow = "hidden"
         }
         else {
-            setstick(false);
+            document.body.style.overflow = "auto"
+
         }
     }
+
+    const setcolor = () => {
+        if (window.scrollY >= 80) {
+            setsticky(true);
+        } else {
+            setsticky(false);
+        }
+    }
+
     window.addEventListener('scroll', setcolor);
     return (
         <div>
-            <nav className={`fixed w-full ${stick ? "bg-blue-600" : "bg-white"}`}>
-                <div className='flex justify-between mx-6 items-center'>
-                    <div className={`text-[32px] ${stick ? "text-white" : "text-blue-600"} font-semibold`}>
-                        Logo
+            <nav className={`fixed z-[999] transition-all delay-200 ease-linear w-full p-[8px_20px] md:p-[30px_20px] ${sticky || nav ? "bg-[#4070f4]" : "bg-white"} `}>
+                <div className="flex justify-between md:m-[0_27px] align-middle  items-center ">
+
+                    <div className={`md:text-[20px] text-[25px] ${sticky ? "hover:text-[white]" : "hover:text-[#4070f4]"} m-auto md:hidden font-semibold text-[#ebad00]`}>Logo.</div>
+
+                    <div onClick={func} className={`md:hidden text-[4vh] font-semibold flex mr-[10px] ${nav || sticky ? "text-white" : "text-[#4070f4]"}`}>
+                        <ion-icon name={nav ? "close" : "menu"}></ion-icon>
                     </div>
-                    <div className='flex list-none '>
-                        <Link to="/" className='mx-3 capitalize text-lg hover:text-blue-700 cursor-pointer font-semibold'>home</Link>
-                        <Link to="about" className='mx-3 capitalize text-lg hover:text-blue-700 cursor-pointer font-semibold'>About</Link>
-                        <Link to="/" className='mx-3 capitalize text-lg hover:text-blue-700 cursor-pointer font-semibold'>Service</Link>
-                        <Link to="/" className='mx-3 capitalize text-lg hover:text-blue-700 cursor-pointer font-semibold'>Contact</Link>
+
+                    <div className={`transition-all flex flex-col md:flex-row ease-linear delay-[0.3] md:flex cursor-pointer list-none md:static absolute top-0 items-center text-center md:w-full md:justify-center  w-[70%] bg-[#4070f4] h-[100vh] md:h-0 md:left-[0%] md:text-[20px] text-[20px] ${nav ? "left-[0%]" : "left-[-100%]"} ${nav || sticky ? "text-white" : "text-black"} mt-[53px] md:mt-0 md:space-y-0 space-y-10`}>
+                         <Link to="about" offset={-90} duration={500}>Add user</Link> 
+                         <Link  to="home"   className="mx-6" offset={-90} duration={500}>List User </Link> 
+                         <Link to="about" offset={-90} duration={500}>About</Link>
+
                     </div>
+
                 </div>
             </nav>
-            
         </div>
     );
 }
