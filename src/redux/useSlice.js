@@ -2,16 +2,16 @@ import { createSlice} from '@reduxjs/toolkit'
 const userSlice = createSlice({
     name: 'user',
     initialState: {
-       name:"John",
-       role:"front End Dev",
-       type:"Intern"
+       user:{ 
+        name:[],
+        role:[],
+        type:[]}
     },
     reducers: {
-      update: (state,action) => {
-            state.name = action.payload.name;
-            state.role = action.payload.role;
-            state.type = action.payload.type;
-
+      update: (state,action) => {  
+            state.user.name.push(action.payload.name)   
+            state.user.role.push(action.payload.role)   
+            state.user.type.push(action.payload.type)    
       }
     }
   })
