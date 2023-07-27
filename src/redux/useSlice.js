@@ -1,17 +1,11 @@
-import { createSlice} from '@reduxjs/toolkit'
+import { createSlice} from '@reduxjs/toolkit'  
+import { userList } from '../data/User';
 const userSlice = createSlice({
     name: 'user',
-    initialState: {
-       user:{ 
-        name:[],
-        role:[],
-        type:[]}
-    },
+    initialState:userList,
     reducers: {
-      update: (state,action) => {  
-            state.user.name.push(action.payload.name)   
-            state.user.role.push(action.payload.role)   
-            state.user.type.push(action.payload.type)    
+      update: (state,action) => {   
+            state.push(action.payload) 
       }
     }
   })
