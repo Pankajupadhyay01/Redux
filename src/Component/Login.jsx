@@ -27,7 +27,7 @@ const Login = () => {
                 <label htmlFor="">Enter Job Type </label>
                 <input type="text" onChange={(e)=>{settype(e.target.value)}} placeholder="Intern" className="text-center border-2 border-black w-[80%] p-[10px] rounded-3xl justify-center outline-none" />
 
-                <button onClick={func} disabled={true} className='bg-blue-500 px-[50px] rounded-3xl py-[10px]'>Submit</button>
+                <button onClick={func} className='bg-blue-500 px-[50px] rounded-3xl py-[10px]'>Submit</button>
             </form> 
         </div>
          
